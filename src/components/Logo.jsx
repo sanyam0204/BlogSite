@@ -1,7 +1,7 @@
 import React from "react";
 
-function Logo({ width = "100px" }) {
-  return <div>Logo</div>;
+function Logo({ width = "1000px" }) {
+  return <img src="/src/assets/images.png" alt="logo" style={{ width }} />;
 }
 
 export default Logo;

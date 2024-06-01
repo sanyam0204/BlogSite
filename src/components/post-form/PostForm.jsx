@@ -42,13 +42,16 @@ export default function PostForm({ post }) {
 
       if (file) {
         const fileId = file.$id;
+        //console.log("fileId", fileId);
         data.featuredImage = fileId;
+        console.log(userData);
         const dbPost = await appwriteService.createPost({
           ...data,
           userId: userData.$id,
         });
 
         if (dbPost) {
+          console.log("dbPost", dbPost);
           navigate(`/post/${dbPost.$id}`);
         }
       }
@@ -77,12 +80,12 @@ export default function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap ">
       <div className="w-2/3 px-2">
         <Input
           label="Title :"
           placeholder="Title"
-          className="mb-4"
+          className="mb-4 "
           {...register("title", { required: true })}
         />
         <Input
